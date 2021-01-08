@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# JavaScript Calculator Project from fcc/front-end-libraries challenges
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
