@@ -54,7 +54,7 @@ body {
 
 #output-display {
   font-size: 23px;
-  height: 30px;
+  min-height: 30px;
   color: var(--orange);
 }
 
