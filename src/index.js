@@ -118,18 +118,26 @@ class Calculator extends React.Component {
 
 
       case "-":
-        if(lastInOutput !== value) {
-          if(calculated === 1){
-            this.setState({
-              input: value,
-              output: finalResult + value,
-              calcualted: 0
-            });
-          } else {
-            this.setState({
-              input: value,
-              output: output + value
-            });
+        if(calculated === 1) {
+          this.setState({
+            input: finalResult + value,
+            output: finalResult + value,
+            calculated: 0
+          })
+        } else {
+          if(lastInOutput !== value) {
+            if(calculated === 1){
+              this.setState({
+                input: value,
+                output: finalResult + value,
+                calcualted: 0
+              });
+            } else {
+              this.setState({
+                input: value,
+                output: output + value
+              });
+            }
           }
         }
         break;
