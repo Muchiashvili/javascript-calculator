@@ -35,36 +35,6 @@ class Calculator extends React.Component {
 
 
 
-      case "0":
-        if(calculated === 1) {
-          this.setState({
-            input: value,
-            output: value,
-            calculated: 0
-          })
-        } else if(input.length < 20) {
-          if(actions.indexOf(input) !== -1) {
-            this.setState({
-              input: value,
-              output: output + value
-            });
-          } else {
-            if(input !== value && output !== "") {
-              this.setState({
-                input: input + value,
-                output: output + value
-              })
-            } else if(input === value && output === "") {
-              this.setState({
-                output: value
-              });
-            }
-          }
-        }
-        break;
-
-
-
       case ".":
         if(calculated === 1) {
           this.setState({
@@ -117,30 +87,30 @@ class Calculator extends React.Component {
         break;
 
 
-      case "-":
-        if(calculated === 1) {
-          this.setState({
-            input: finalResult + value,
-            output: finalResult + value,
-            calculated: 0
-          })
-        } else {
-          if(lastInOutput !== value) {
-            if(calculated === 1){
-              this.setState({
-                input: value,
-                output: finalResult + value,
-                calcualted: 0
-              });
-            } else {
-              this.setState({
-                input: value,
-                output: output + value
-              });
+        case "-":
+          if(calculated === 1) {
+            this.setState({
+              input: finalResult + value,
+              output: finalResult + value,
+              calculated: 0
+            })
+          } else {
+            if(lastInOutput !== value) {
+              if(calculated === 1){
+                this.setState({
+                  input: value,
+                  output: finalResult + value,
+                  calcualted: 0
+                });
+              } else {
+                this.setState({
+                  input: value,
+                  output: output + value
+                });
+              }
             }
           }
-        }
-        break;
+          break;
 
 
 
@@ -170,8 +140,8 @@ class Calculator extends React.Component {
               })
             }
           } 
-        } else if(input.length < 16){
-          if(calculated === 0) {
+        } else {
+          if(calculated === 0 && input.length < 16) {
             if(input == "0"){
               this.setState({
                 input: value,
